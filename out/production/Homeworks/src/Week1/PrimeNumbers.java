@@ -1,4 +1,4 @@
-package com.remik;
+package Week1;
 
 public class PrimeNumbers {
     public static void main(String[] args) {
