@@ -4,6 +4,8 @@ import static Week3.FunWithTrees_Lists.*;
 import  Week3.FunWithTrees_Lists.ListNode;
 import  Week3.FunWithTrees_Lists.TreeNode;
 
+import java.util.ArrayList;
+
 public class Tester {
 
 
@@ -17,12 +19,12 @@ public class Tester {
         TreeNode root = new TreeNode(l1, new TreeNode(l2, new TreeNode(l4), null), new TreeNode(l3, new TreeNode(l5), new TreeNode(l6)));
 
 
-        System.out.println(root.value.next.data);
+        //System.out.println(root.value.next.data);
 
 
-        flatten(root);
+        System.out.println((flatten(root)).data);
+
 
     }
-
 
 }

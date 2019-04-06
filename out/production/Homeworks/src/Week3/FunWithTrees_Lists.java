@@ -1,69 +1,52 @@
 package Week3;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Stack;
+import org.w3c.dom.NodeList;
+
+import javax.imageio.metadata.IIOMetadataFormatImpl;
+import javax.swing.text.TabExpander;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 
 public class FunWithTrees_Lists {
+    private static ArrayList<Integer> setOut = new ArrayList<>();
+
+
+    public static ListNode append(ListNode append, int next) {
+        return append;
+    }
+
 
 
     public static ListNode flatten(TreeNode root) {
 
+        List<Integer> data = (treeParser(root));
+        data = data.stream().sorted().distinct().collect(Collectors.toList());
 
-        Set<Integer> tempArray = new HashSet<>();
-        ArrayList<Integer> tempArray2 = new ArrayList<>();
-        Stack<TreeNode> stack = new Stack<>();
-
-        stack.push(root);
-
-        while (!stack.isEmpty()) {
-            TreeNode node = stack.pop();
-
-            try {
-
-                tempArray.add(node.value.data);
-                tempArray.add(node.value.next.data);
-                //System.out.println(node.value.data) ;
-                //System.out.println(node.value.next.data);
-
-            } catch (NullPointerException e) {
-                //System.out.println("main");
-            }
-
-
-            if (root == null) continue;
-            try {
-                stack.push(node.left);
-            } catch (NullPointerException e) {
-                //System.out.println("left");
-            }
-            try {
-                stack.push(node.right);
-            } catch (NullPointerException e) {
-                //System.out.println("right");
-            }
-
+        ListNode li = new ListNode();
+        for (Integer datum : data) {
+            li = append(li,datum);
         }
-
-        tempArray2.addAll(tempArray);
-        tempArray2.sort(Integer::compareTo);
-        //System.out.println(tempArray2.toString());
-
-
-
-
-        for (int i = 1; i <tempArray2.size() ; i++) {
-          ListNode ret = new ListNode(tempArray2.get(i));
-
-
-        }
-
-
-
-        return null;
+        return li;
     }
+
+        private static List treeParser(TreeNode root) {
+
+            try {
+                flatten(root.right);
+                flatten(root.left);
+
+                setOut.add(root.value.data);
+                setOut.add(root.value.next.data);
+                setOut.add(root.left.value.data);
+                setOut.add(root.right.value.data);
+            } catch (NullPointerException e) {
+            }
+        return setOut;
+        }
+
+
 
      static class TreeNode {
         public TreeNode left;
@@ -90,10 +73,10 @@ public class FunWithTrees_Lists {
             this.next = next;
         }
 
+        ListNode(){};
+
         ListNode(int data) {
             this(data, null);
         }
-
-
     }
 }
