@@ -23,6 +23,7 @@ public class FunWithTrees_Lists {
 
         List<Integer> data = (treeParser(root));
         data = data.stream().sorted().distinct().collect(Collectors.toList());
+        //flatMapToInt(r -> IntStream.of(r))
 
         ListNode li = new ListNode();
         for (Integer datum : data) {
