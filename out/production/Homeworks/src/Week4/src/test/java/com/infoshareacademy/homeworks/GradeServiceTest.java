@@ -1,4 +1,4 @@
-package com.infoshareacademy.homeworks;
+package Week4.src.test.java.com.infoshareacademy.homeworks;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

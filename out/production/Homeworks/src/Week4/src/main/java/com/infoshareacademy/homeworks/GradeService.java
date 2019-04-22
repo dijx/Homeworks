@@ -1,4 +1,4 @@
-package com.infoshareacademy.homeworks;
+package Week4.src.main.java.com.infoshareacademy.homeworks;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
